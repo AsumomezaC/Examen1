@@ -34,7 +34,7 @@ namespace Examen1{
         case 1:
           return Apostar();
         case 2:
-          return Estadisticas();
+          return true;
         default: 
           Salir();
           return false;
@@ -48,8 +48,8 @@ namespace Examen1{
       return player.Apostar(monto, tipo);
     }
 
-    public bool Estadisticas(){
-      return true;
+    public void Estadisticas(){
+      
     }
 
     public void Salir(){

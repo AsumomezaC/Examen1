@@ -5,6 +5,8 @@
       // presentacion
       Console.WriteLine("Bienvenido al Cazino");
       do{
+        Console.Write("Presione enter para continuar");
+        Console.ReadLine();
       }while(menu.ShowMenu());
     }
   }
