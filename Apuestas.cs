@@ -1,6 +1,7 @@
 namespace Examen1{
   class Apuestas{
     Numeros numeros = new Numeros();
+    public Estadisticas? estadisticas;
     // Apostar retorna verdadero si gano y falso si perdio
     // recibe el tipo de apuesta
     public bool Apostar(int tipoApuesta){

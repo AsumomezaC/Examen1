@@ -1,11 +1,12 @@
 namespace Examen1{
   class Jugador{
     public int dinero;
-    public Estadisticas estadisticas = new Estadisticas();
     public Apuestas apuestas = new Apuestas();
     public Jugador(){
       // El jugador deberá iniciar con un monto de dinero inicial ($300)
       this.dinero = 300;
+      // Inicializa las estadisticas
+      this.apuestas.estadisticas = new Estadisticas(this.dinero);
     }
 
     // tipo se refiere al tipo de apuesta que se esta haciendo
@@ -26,7 +27,7 @@ namespace Examen1{
         } else {
           Console.WriteLine("Una lastima, has perdido :c");
           if(this.dinero < 10){
-            Console.WriteLine("Parece que no tienes suficiente dinero para seguir jugando");
+            Console.WriteLine("...Parece que no tienes suficiente dinero para seguir jugando");
             Console.WriteLine("Game Over");
             return false; // se termina el juego, si tienes menos de 10 no puedes seguir apostando
           } else {
@@ -50,6 +51,41 @@ namespace Examen1{
           return;
         default:
           Console.WriteLine("Ups, ocurrio un error");
+          break;
+      }
+    }
+
+    // estadisticas
+    public void Consulta(int tipo){
+      Console.Clear();
+
+      switch(tipo){
+        case 1:
+          Console.WriteLine($"Su balance es: {apuestas.estadisticas.balance}");
+          break;
+        case 2:
+          Console.WriteLine($"Cantidad de giros realizados: {apuestas.estadisticas.noGiros}");
+          break;
+        case 3:
+          Console.WriteLine($"Numero que mas veces se ha tirado: {apuestas.estadisticas.noPopular}");
+          break;
+        case 4:
+          Console.WriteLine($"Numero que menos veces se ha tirado: {apuestas.estadisticas.noImpopular}");
+          break;
+        case 5:
+          Console.WriteLine($"Cantidad de resultados rojos: {apuestas.estadisticas.rojos}");
+          break;
+        case 6:
+          Console.WriteLine($"Cantidad de resultados negros: {apuestas.estadisticas.negros}");
+          break;
+        case 7:
+          Console.WriteLine($"Cantidad de resultados pares: {apuestas.estadisticas.pares}");
+          break;
+        case 8:
+          Console.WriteLine($"Cantidad de resultados impares: {apuestas.estadisticas.impares}");
+          break;
+        default:
+          Console.WriteLine("Ocurrio un error, intente nuevamente");
           break;
       }
     }
