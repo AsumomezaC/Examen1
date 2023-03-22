@@ -8,7 +8,7 @@ namespace Examen1{
     public int negros;
     public int pares;
     public int impares;
-    int[] numeros = new int[37]; // un espacio para cada numero 36 + el 0
+    public int[] numeros = new int[37]; // un espacio para cada numero 36 + el 0
 
     public Estadisticas(int balance)
     {

@@ -19,19 +19,21 @@ namespace Examen1{
       } else {
         // Hay sufficientos fondos para la apuesta
         this.dinero-=dineroApostado;// disminuye fondos apostados
+        apuestas.estadisticas.balance = this.dinero;
         //verificar si gana la apuesta tiene suficiente dinero para seguir apostando <10, o si acaba el juego
         if(apuestas.Apostar(tipo)){
           Console.WriteLine("Felicidades, has ganado la apuesta");
           AgregarGanancia(dineroApostado, tipo);
+          apuestas.estadisticas.balance = this.dinero;
           return true;
         } else {
-          Console.WriteLine("Una lastima, has perdido :c");
+          Console.WriteLine("Una lastima, has perdido");
           if(this.dinero < 10){
-            Console.WriteLine("...Parece que no tienes suficiente dinero para seguir jugando");
+            Console.WriteLine("\n...Parece que no tienes suficiente dinero para seguir jugando");
             Console.WriteLine("Game Over");
             return false; // se termina el juego, si tienes menos de 10 no puedes seguir apostando
           } else {
-            Console.WriteLine("Mas suerte la poxima");
+            Console.WriteLine("Mas suerte la proxima");
             return true; // puede seguir realizando apuestas
           }
         }
@@ -61,7 +63,7 @@ namespace Examen1{
 
       switch(tipo){
         case 1:
-          Console.WriteLine($"Su balance es: {apuestas.estadisticas.balance}");
+          Console.WriteLine($"Su balance es: ${apuestas.estadisticas.balance}");
           break;
         case 2:
           Console.WriteLine($"Cantidad de giros realizados: {apuestas.estadisticas.noGiros}");

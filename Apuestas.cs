@@ -8,7 +8,9 @@ namespace Examen1{
       // crear numero
       Random random = new Random();
       int numCreado = random.Next(0, 37);
-
+      
+      // estadisticas
+      AniadirEstadisticas(numCreado);
 
       switch(tipoApuesta){
         case 1:
@@ -97,7 +99,7 @@ namespace Examen1{
           Console.Clear();
           Console.WriteLine("El numero sera par o impar?");
           Console.WriteLine("1) Par");
-          Console.WriteLine("2) Negro");
+          Console.WriteLine("2) Impar");
           opcion = Console.ReadLine();
           if(opcion != "1" && opcion != "2"){ // si no se selecciona una opcion valida
             Console.WriteLine("Opcion invalida, presione para continuar");
@@ -112,6 +114,36 @@ namespace Examen1{
           return false;
       }
     // fin de selecciones de apuestas
+
+    // metodos de estaditica
+    public void AniadirEstadisticas(int numero){
+      estadisticas.noGiros++;
+
+      estadisticas.numeros[numero]++;// aniade conteo al numero que se agrego
+
+      // determina si el nuevo numero es mas popular que el anterior
+      if(estadisticas.numeros[estadisticas.noPopular] < estadisticas.numeros[numero]){
+        estadisticas.noPopular = numero;
+      }
+
+      //determina el numero impopular
+      for(int i = 0; i <= 36; i++){
+        if(estadisticas.numeros[estadisticas.noImpopular] > estadisticas.numeros[i]){
+          estadisticas.noImpopular = i;
+        }
+      }
+
+      if(Color(numero) == "negro")
+        estadisticas.negros++;
+      else if(Color(numero) == "rojo")
+        estadisticas.rojos++;
+
+      if(numero % 2 == 0)
+        estadisticas.pares++;
+      else
+        estadisticas.impares++;
+    }
+    //fin de metodos de estadidtica
 
     // metodos adicionales
     public void ImprimirNumero(int numero){

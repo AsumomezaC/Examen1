@@ -104,7 +104,7 @@ namespace Examen1{
           opcion = Console.ReadLine();
         } while (opcion == null);
         monto = Int32.Parse(opcion);
-      } while((monto % 10) != 0);//si no se selecciono un monto multiplo de 10
+      } while((monto % 10) != 0 || monto < 10);//si no se selecciono un monto multiplo de 10
 
       return monto;
     }
