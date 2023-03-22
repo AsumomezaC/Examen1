@@ -30,6 +30,7 @@ namespace Examen1{
           Console.WriteLine("Una lastima, has perdido");
           if(this.dinero < 10){
             Console.WriteLine("\n...Parece que no tienes suficiente dinero para seguir jugando");
+            Console.WriteLine($"Has perdido ${300 - apuestas.estadisticas.balance}");
             Console.WriteLine("Game Over");
             return false; // se termina el juego, si tienes menos de 10 no puedes seguir apostando
           } else {
